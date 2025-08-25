@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  /* 🎨 Brand colors */
+  --color-primary: #3b82f6; /* blue-500 */
+  --color-primary-dark: #1e40af; /* blue-900 */
+  --color-accent: #f59e0b; /* amber-500 */
+  --color-bg: #f9fafb; /* gray-50 */
+  --color-text: #111827; /* gray-900 */
+
+  /* 🔠 Typography scale */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+
+  /* 🟦 Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* 📏 Spacing scale (if you want custom) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+}
+
+.project-card {
+  max-width: 300px;
+  height: 300px;
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* 
+.project-img {
+  display: flex;
+  justify-content: center;
+  height: 60%;
+  border: 1px solid rgb(150, 6, 61);
+} */
+
+.project-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 60%;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  opacity: 1;
+  display: block;
+
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.project-img:hover .image {
+  opacity: 0.5;
+}
+
+.project-img:hover .middle {
+  opacity: 1;
+}
+
+.project-desc {
+  margin: 8px;
+}
+
+.project-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: rgba(8, 1, 1, 0.753);
+}
+.desc {
+  font-size: 0.875rem;
+  color: rgba(146, 0, 0, 0.596);
+}
+
+.link-btns {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.link-btn {
+  width: 5rem;
+  padding: 0.2rem 1rem;
+  font-size: 0.875rem;
+  border: 1px solid rgb(0, 0, 8);
+  border-radius: 0.3rem;
+}
+
+.link-btn:hover {
+  cursor: pointer;
+}
