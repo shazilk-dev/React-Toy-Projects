@@ -3,6 +3,7 @@ import Question from "./../components/QuizApp/Question";
 import ProgressBar from "../components/QuizApp/ProgressBar";
 import Button from "./../components/Button";
 import QuizResult from "./../components/QuizApp/QuizResult";
+import Layout from "../components/Layout";
 
 const quizData = [
   {
@@ -74,54 +75,58 @@ export default function App() {
   if (isSubmitted) {
     const score = calculateScore();
     return (
-      <QuizResult
-        quizData={quizData}
-        score={score}
-        selectedAnswers={selectedAnswers}
-      />
+      <Layout title="Quiz App">
+        <QuizResult
+          quizData={quizData}
+          score={score}
+          selectedAnswers={selectedAnswers}
+        />
+      </Layout>
     );
   }
 
   return (
-    <div className="bg-bg text-text flex min-h-screen items-center justify-center p-6 font-sans">
-      <Button variant="primary" size="md" className="absolute top-4 left-4">
-        <a href="/">Back</a>
-      </Button>
-      <div className="w-full max-w-xl space-y-6 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200 md:p-8">
-        <h1 className="flex w-full justify-center text-xl font-bold uppercase">
-          Quiz App
-        </h1>
-        <ProgressBar current={currentIndex} total={quizData.length} />
+    <Layout title="Quiz App">
+      <div className="flex min-h-[80vh] items-center justify-center">
+        <div className="w-full max-w-2xl rounded-lg bg-white p-8 shadow-lg">
+          <h2 className="mb-6 text-center text-2xl font-bold text-gray-800">
+            General Knowledge Quiz
+          </h2>
 
-        <Question
-          question={currentQuestion}
-          index={currentIndex}
-          total={quizData.length}
-          selectedAnswer={selectedAnswers[currentQuestion.id]}
-          isSubmitted={isSubmitted}
-          onSelect={handleOptionSelect}
-        />
+          <div className="space-y-6">
+            <ProgressBar current={currentIndex} total={quizData.length} />
 
-        <div className="flex justify-between pt-4">
-          <Button
-            variant="secondary"
-            disabled={currentIndex === 0}
-            onClick={handlePrev}
-          >
-            Previous
-          </Button>
+            <Question
+              question={currentQuestion}
+              index={currentIndex}
+              total={quizData.length}
+              selectedAnswer={selectedAnswers[currentQuestion.id]}
+              isSubmitted={isSubmitted}
+              onSelect={handleOptionSelect}
+            />
 
-          {currentIndex < quizData.length - 1 ? (
-            <Button variant="primary" onClick={handleNext}>
-              Next
-            </Button>
-          ) : (
-            <Button variant="primary" onClick={handleSubmit}>
-              Submit
-            </Button>
-          )}
+            <div className="flex justify-between pt-4">
+              <Button
+                variant="secondary"
+                disabled={currentIndex === 0}
+                onClick={handlePrev}
+              >
+                Previous
+              </Button>
+
+              {currentIndex < quizData.length - 1 ? (
+                <Button variant="primary" onClick={handleNext}>
+                  Next
+                </Button>
+              ) : (
+                <Button variant="primary" onClick={handleSubmit}>
+                  Submit
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

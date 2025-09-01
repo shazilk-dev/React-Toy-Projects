@@ -1,21 +1,33 @@
 import "./App.css";
 import { ProjectsList } from "./components/ProjectsList";
-// import { ThemeToggle } from "./components/ThemeToggle";
-// import Todo from "./components/Todo";
+import Layout from "./components/Layout";
 
 function App() {
   return (
-    <>
-      <header className="mx-auto flex w-full max-w-5xl items-center justify-center px-6 py-4">
-        <h1 className="mt-5 text-2xl font-bold tracking-tight uppercase sm:text-3xl">
-          React Toy Projects
-        </h1>
-        {/* <ThemeToggle /> */}
-      </header>
-      <div className="flex min-h-[calc(100vh-120px)] w-full flex-col items-center justify-center gap-10 px-6 pb-16">
-        <ProjectsList />
+    <Layout title="React Toy Projects" showBackButton={false}>
+      <div className="space-y-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Welcome to My React Projects
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            A collection of small React applications showcasing different
+            concepts and UI patterns. Click on any project to explore its
+            functionality.
+          </p>
+        </div>
+
+        <div className="mt-12">
+          <ProjectsList />
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-sm text-gray-500">
+            Built with React, TypeScript, and Tailwind CSS by Shazil Khan
+          </p>
+        </div>
       </div>
-    </>
+    </Layout>
   );
 }
 

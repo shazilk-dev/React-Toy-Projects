@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from "react";
 import { ShineBorder } from "./ui/ShineBorder";
 import { TiltCard } from "./ui/TiltCard";
+import { Link } from "react-router";
+import { ArrowRight } from "lucide-react";
 
 type Project = {
   title: string;
@@ -57,12 +59,13 @@ export function ProjectCard({
           </div>
         )}
         {project.href && (
-          <a
-            href={project.href}
-            className="text-foreground/80 mt-4 inline-flex items-center gap-1 text-xs font-medium hover:underline"
+          <Link
+            to={project.href}
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-600"
           >
-            Explore <span aria-hidden>→</span>
-          </a>
+            Explore Project
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         )}
       </div>
     </TiltCard>
