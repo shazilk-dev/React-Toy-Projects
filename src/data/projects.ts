@@ -9,21 +9,20 @@ type Project = {
 const projects: Project[] = [
   {
     title: "TODO APP",
-    description:
-      "Description: hello world how is going on.. am i not the best not at all",
-    image: "/project-1.jpg",
+    description: "PSDC Toy project-1: Todo App",
+    image: "/todo.PNG",
     href: "/todo",
   },
   {
     title: "Quiz App",
-    description: "Description: This is project 2",
-    image: "/project-1.jpg",
+    description: "PSDC Toy project-2: Quiz App",
+    image: "/quiz.PNG",
     href: "/quiz",
   },
   {
     title: "Stepper",
-    description: "Description: This is project 3",
-    image: "/project-1.jpg",
+    description: "PSDC Toy project-3: Stepper",
+    image: "/stepper.PNG",
     href: "/stepper",
   },
 ];
